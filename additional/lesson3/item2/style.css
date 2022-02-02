@@ -1,0 +1,39 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body { background: #1d1d1d; }
+
+.users-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.user-block {
+    width: 45%;
+    padding: 20px;
+    border: 3px solid teal;
+    background: #282828;
+}
+
+.user-block h2 {
+    color: silver;
+    margin-bottom: 12px;
+}
+
+.user-block h3 {
+    color: teal;
+    margin-bottom: 8px;
+}
+
+.address-block > p {
+    color: #909554;
+    line-height: 20px;
+    font-weight: 500;
+}
