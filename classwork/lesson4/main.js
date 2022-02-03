@@ -85,21 +85,26 @@
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
 //      (Math використовувати заборонено);
 
-    function getMinAndShowMaxNum(...args) {
-        let min = args[0];
-        let max = args[0];
+    function getMinAndShowMaxNum1(...nums) {
+        let min = nums[0];
+        let max = nums[0];
 
-        for (let item of args) {
-            if (item > max) max = item;
-            if (item < min) min = item;
+        for (let num of nums) {
+            if (num > max) max = num;
+            if (num < min) min = num;
         }
 
         console.log(max);
         return min;
     }
 
-    let result = getMinAndShowMaxNum(5, 97, 0, -222, 78, 491);
-    console.log(result);
+    function getMinAndShowMaxNum2(...nums) {
+        console.log(Math.max(...nums));
+        return Math.min(...nums);
+    }
+
+    console.log(getMinAndShowMaxNum1(5, 97, 0, -222, 78, 491));
+    console.log(getMinAndShowMaxNum2(5, 97, 0, -222, 78, 491));
 
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
