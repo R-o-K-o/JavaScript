@@ -4,13 +4,12 @@
 
 // 1. перебрати його циклом while
 
-    let i = 0;
+    let i = nums.length;
 
     while (i < nums.length) {
         console.log(nums[i]);
         i++;
     }
-
 
     i = nums.length;
 
