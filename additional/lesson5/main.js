@@ -1,12 +1,26 @@
 // - Дано натуральное число n. Выведите все числа от 1 до n.
 
+    let number = prompt('введіть число', 'enter number');
+
+    // Loop
     const displayNumsInRange1 = n => {
         for (let i = 1; i < n; i++) {
             console.log(i);
         }
     }
 
-    displayNumsInRange1(10);
+    // Recursion
+    const recursion = (n, i = 1) => {
+        if (i >= n) {
+            return;
+        }
+        console.log(i);
+
+        return recursion(number, ++i);
+    }
+
+    recursion(number);
+    displayNumsInRange1(number);
 
 // - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B,
 //      или в порядке убывания в противном случае.
