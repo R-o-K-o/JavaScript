@@ -92,7 +92,7 @@
         },
         {
             title: 'QA Complex',
-            monthDuration: 4,
+            monthDuration: 5,
             hourDuration: 909,
             modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
         },
@@ -122,13 +122,7 @@
         }
     ];
 
-    const sort = (arr) => {
-        for (let item of arr) {
-            item.modules.sort().reverse();
-        }
-        return arr;
-    };
-
+    const sort = (arr) => arr.sort((a, b) => b.modules.length - a.modules.length);
     console.log(sort(coursesArray));
 
 // - Напишіть функцію count(str, stringSearch), яка повертає кількість символів stringSearch у рядку str.
