@@ -121,7 +121,7 @@
         status.innerText = `status - ${user.status}`;
 
         let address = document.createElement('div');
-        address.innerHTML = `country - ${user.address.country} <br> 
+        address.innerHTML = `country - ${user.address.country} <br>
                              city - ${user.address.city} <br>
                              street - ${user.address.street} <br>
                              house number: ${user.address.houseNumber}`;
@@ -140,23 +140,23 @@
         userCard.style.margin = '30px';
 
         let username = document.createElement('h2');
-        username.innerText = `name - ${user.name}`;
+        username.innerText = `name:  ${user.name}`;
 
         let userAge = document.createElement('div');
         userAge.innerText = `age: ${user.age}`;
 
         let userStatus = document.createElement('div');
-        userStatus.innerText = `status - ${user.status}`;
+        userStatus.innerText = `status: ${user.status}`;
 
         let userAddress = document.createElement('div');
         let country = document.createElement('div');
-        country.innerText = `country - ${user.address.country}`;
+        country.innerText = `country: ${user.address.country}`;
 
         let city = document.createElement('div');
-        city.innerText = `city - ${user.address.city}`;
+        city.innerText = `city: ${user.address.city}`;
 
         let street = document.createElement('div');
-        street.innerText = `street - ${user.address.street}`;
+        street.innerText = `street: ${user.address.street}`;
 
         let houseNumber = document.createElement('div');
         houseNumber.innerText = `house number: ${user.address.houseNumber}`;
@@ -171,9 +171,9 @@
 //     що знаходиться на сторінці.
 //     Скріпт повинен працювати навіть якщо кількість блоків з заголовком та параграфом зміниться.
 
+//    todo Recursion function
 
-
-// -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
+// -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить кожне правило в окремому блоці.
 //     При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
 //     Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
 
@@ -212,3 +212,21 @@
     },
 
 ];
+
+    for (let rule of rules) {
+        let block = document.createElement('div');
+        block.style.border = '3px solid #000';
+        block.style.padding = '20px';
+        block.style.margin = '20px';
+
+        let title = document.createElement('h2');
+        title.innerText = rule.title;
+
+        let text = document.createElement('p');
+        text.innerText = rule.body;
+
+        block.append(title, text);
+        body.appendChild(block);
+    }
+
+
