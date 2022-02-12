@@ -1,31 +1,15 @@
 * { font-family: 'Baloo Chettan 2', cursive; box-sizing: border-box; }
 
-body {background: #ccc}
+body { background: #ccc; }
 
-#firstForm > input, #secondForm > input {
-    margin: 0 15px 15px 0;
-}
+#firstForm > input, #secondForm > input { margin: 0 15px 15px 0; }
 
+.inputs-block { margin: 50px 0; }
 
-/*table {*/
-/*    border-collapse: separate;*/
-/*    width: 400px;*/
-/*    border-spacing: 0;*/
-/*    !*border: 1px solid red;*!*/
-/*    border: 3px solid black;*/
-/*}*/
+.inputs-block > input { margin-right: 15px; }
 
-/*tr {*/
-/*    border: 2px solid black;*/
-/*}*/
-/*td {*/
-/*    border: 2px solid black;*/
-/*}*/
-.div {
-    width: 700px;
-}
 table {
-    /*width: 600px;*/
+    min-width: 600px;
     border-spacing: 10px;
     border-collapse: separate;
     border: 3px solid teal;
@@ -34,11 +18,9 @@ table {
 td {
     border: 2px solid teal;
     text-align: center;
-    background: #afbb85;
     padding: 0 3px;
+    background: #afbb85;
 }
 
-
-.inputs-block { margin: 50px 0; }
-
-.inputs-block > input { margin-right: 15px }
+.block { margin-bottom: 10px; }
+.block > input{ margin-right: 10px; }
