@@ -238,57 +238,56 @@
 
     let body = document.body;
     let userCards = document.createElement('div');
-    userCards.classList.add('user-cards');
 
     for (let user of users) {
         let userCard = document.createElement('div');
         userCard.classList.add('user-card');
-        userCard.style.border = '3px solid teal';
-        userCard.style.padding = '20px';
-        userCard.style.margin = '20px';
 
         let title = document.createElement('h1');
         title.innerText = `${user.id}. ${user.name}`;
 
         // Contact Data
-        let contactsData = document.createElement('section');
-        contactsData.classList.add('contacts-data');
+        let contactData = document.createElement('section');
+        contactData.classList.add('contact-data');
+
         let contactTitle = document.createElement('h3');
         contactTitle.innerText = 'Contacts Data:';
         let nickname = document.createElement('div');
-        nickname.innerText = `* nick - ${user.username}`;
+        nickname.innerText = `nick - ${user.username}`;
         let phone = document.createElement('div');
-        phone.innerText = `* phone: ${user.phone}`;
+        phone.innerText = `phone: ${user.phone}`;
         let email = document.createElement('div');
-        email.innerText = `* email - ${user.email}`;
+        email.innerText = `email - ${user.email}`;
         let website = document.createElement('div');
-        website.innerText = `* website - ${user.website}`;
+        website.innerText = `website - ${user.website}`;
 
-        contactsData.append(contactTitle, nickname, phone, email, website);
+        contactData.append(contactTitle, nickname, phone, email, website);
 
         // Address Data
         let addressData = document.createElement('section');
         addressData.classList.add('address-data');
+
         let addressTitle = document.createElement('h3');
         addressTitle.innerText = 'Address Data:';
         let city = document.createElement('div');
-        city.innerText = `* city - ${user.address.city}`;
+        city.innerText = `city - ${user.address.city}`;
         let street = document.createElement('div');
-        street.innerText = `* street - ${user.address.street}`;
+        street.innerText = `street - ${user.address.street}`;
         let suite = document.createElement('div');
-        suite.innerText = `* suite - ${user.address.suite}`;
+        suite.innerText = `suite - ${user.address.suite}`;
         let zipcode = document.createElement('div');
-        zipcode.innerText = `* zipcode: ${user.address.zipcode}`;
+        zipcode.innerText = `zipcode: ${user.address.zipcode}`;
 
         // Geo Data
         let geoData = document.createElement('section');
         geoData.classList.add('geo-data');
+
         let geoTitle = document.createElement('h4');
         geoTitle.innerText = 'Geo Data:';
         let latitude = document.createElement('div');
-        latitude.innerHTML = `* latitude: ${user.address.geo.lat}`;
+        latitude.innerHTML = `latitude: ${user.address.geo.lat}`;
         let longitude = document.createElement(`div`);
-        longitude.innerText = `* longitude: ${user.address.geo.lng}`;
+        longitude.innerText = `longitude: ${user.address.geo.lng}`;
 
         geoData.append(geoTitle, latitude, longitude);
         addressData.append(addressTitle, city, street, suite, zipcode, geoData);
@@ -296,18 +295,20 @@
         // Company Data
         let companyData = document.createElement('section');
         companyData.classList.add('company-data');
+
         let companyTitle = document.createElement('h3');
         companyTitle.innerText = 'Company Data:';
         let companyName = document.createElement('div');
-        companyName.innerText = `* name - ${user.company.name}`;
+        companyName.innerText = `name - ${user.company.name}`;
         let companyCatchPhrase = document.createElement('div');
-        companyCatchPhrase.innerText = `* catch phrase - ${user.company.catchPhrase}`;
+        companyCatchPhrase.innerText = `catch phrase - ${user.company.catchPhrase}`;
         let companyBs = document.createElement('div');
-        companyBs.innerText = `* bs - ${user.company.bs}`;
+        companyBs.innerText = `bs - ${user.company.bs}`;
 
         companyData.append(companyTitle, companyName, companyCatchPhrase, companyBs);
 
-        userCard.append(title, contactsData,addressData, companyData);
+        userCard.append(title, contactData,addressData, companyData);
         userCards.appendChild(userCard);
-        body.appendChild(userCards);
     }
+
+    body.appendChild(userCards);

@@ -49,11 +49,16 @@
          {title: 'Frontend', monthDuration: 4}
      ];
 
+    let courseWrap = document.createElement('div');
+
     for (let course of coursesAndDurationArray) {
-        let div = document.createElement('div');
-        div.innerText = `course - ${course.title} duration - ${course.monthDuration} months`;
-        body.appendChild(div);
+        let courseDiv = document.createElement('div');
+        courseDiv.classList.add('item');
+        courseDiv.innerText = `course - ${course.title} duration - ${course.monthDuration} months`;
+        courseWrap.appendChild(courseDiv)
     }
+
+    body.appendChild(courseWrap);
 
 // - Є масив
 //      За допомоги скріпта для кожного елементу масиву зробити <div class='item'> ,
@@ -69,18 +74,22 @@
 //          {title: 'Frontend', monthDuration: 4}
 //      ];
 
+    let courseList = document.createElement('div');
+
     for (let course of coursesAndDurationArray) {
-        let div = document.createElement('div');
-        let h1 = document.createElement('h1');
-        let p = document.createElement('p');
+        let courseItem = document.createElement('div');
+        courseItem.classList.add('item');
 
-        div.classList.add('item');
-        h1.classList.add('heading');
-        p.classList.add('description');
+        let title = document.createElement('h1');
+        title.classList.add('heading');
+        title.innerText = course.title;
 
-        h1.innerText = course.title;
-        p.innerText = course.monthDuration;
+        let courseDuration = document.createElement('p');
+        courseDuration.classList.add('description');
+        courseDuration.innerText = `${course.monthDuration} months`;
 
-        div.append(h1, p);
-        body.appendChild(div);
+        courseItem.append(title, courseDuration);
+        courseList.appendChild(courseItem);
     }
+
+    body.appendChild(courseList);

@@ -1,0 +1,8 @@
+* { font-family: 'Baloo Chettan 2', cursive; box-sizing: border-box; }
+
+.member, .item {
+    margin: 20px;
+    padding: 20px;
+    border: 3px solid teal;
+    background: #ccc;
+}
