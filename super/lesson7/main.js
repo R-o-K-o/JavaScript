@@ -63,6 +63,7 @@
     };
 
     const userCard = (num) => {
+        let dateAndTime = `${getDate()} ${getTime()}`;
         let card = {
             key: random(num),
             balance: 100,
@@ -74,46 +75,59 @@
           putCredits: (money) => {
               card.balance += money;
               card.historyLog.push(
-                  transaction('Received credits', card.balance, `${getDate()} ${getTime()}`)
+                  transaction('Received credits', money, dateAndTime)
               );
           },
             takeCredits: (money) => {
               if (card.balance >= money) {
                   card.balance -= money;
                   card.historyLog.push(
-                      transaction('Withdrawal of credits', card.balance, `${getDate()} ${getTime()}`)
+                      transaction('Withdrawal of credits', money, dateAndTime)
                   );
-              } else console.error('Exceed limit! Try another amount.');
+              } else console.error('Not Enough Funds! Try Another Amount.');
             },
             setTransactionLimit: (limit) => {
               card.transactionLimit = limit;
+              // card.balance = limit;
               card.historyLog.push(
-                  transaction('Transaction limit change', card.balance, `${getDate()}`)
+                  transaction('Transaction limit change', limit, dateAndTime)
               );
             },
             transferCredits: (credit, someCard) => {
-              if (card.transactionLimit - card.balance)
-              someCard.getCardOptions().balance += credit;
-              credit += (credit * 0.5) / 100;
-              card.balance -= credit;
+              let sumWithInterest = +(credit + (credit * 0.5 / 100)).toFixed(2);
+              // console.log(sumWithInterest);
+
+              if (card.balance >= sumWithInterest) {
+                  someCard.getCardOptions().balance += credit;
+                  card.balance = +(card.balance - sumWithInterest).toFixed(2);
+                  card.historyLog.push(
+                      transaction('Withdrawal of credits', sumWithInterest, dateAndTime)
+                  );
+                  someCard.getCardOptions().historyLog.push(
+                      transaction('Received credits', credit, dateAndTime)
+                  );
+              } else {
+                  console.error('Not Enough Funds! Try Another Amount.');
+              }
             },
         };
     };
 
     const card1 = userCard(1);
     const card2 = userCard(2);
+
     // console.log(card1.getCardOptions());
     // console.log(card2.getCardOptions());
 
-    card1.setTransactionLimit(3500);    // ліміт картки
-    // card1.putCredits(1000);            // покласти на карту
-    // card1.takeCredits(700);            // зняти з картки
-    // card1.transferCredits(500, card2);  // перекинути на картку
+    card1.putCredits(700);
+    card1.takeCredits(700);
+    card1.transferCredits(95, card2);
+    card2.takeCredits(150);
 
     console.log(card1.getCardOptions());
-    // console.log(card2.getCardOptions());
+    console.log(card2.getCardOptions());
 
-
+    console.log('-- || -- || -- || -- || -- || -- || -- || -- || -- || -- || -- || -- || -- || -- || -- || --');
 
 //  2.
 //  Створити UserAccount:
@@ -140,15 +154,15 @@
 //          */
 
 //  КодПриклад переказу коштів:
-//  let user = new UserAccount('Bob');
-//  user.addCard()
-//  user.addCard()
-//  let card1 = user.getCardByKey(1);
-//  let card2 = user.getCardByKey(2);
-//  card1.putCredits(500);
-//  card1.setTransactionLimit(800);
-//  card1.transferCredits(300, card2);
-//  card2.takeCredits(50);
+//      let user = new UserAccount('Bob');
+//      user.addCard()
+//      user.addCard()
+//      let card1 = user.getCardByKey(1);
+//      let card2 = user.getCardByKey(2);
+//      card1.putCredits(500);
+//      card1.setTransactionLimit(800);
+//      card1.transferCredits(300, card2);
+//      card2.takeCredits(50);
 
      class UserAccount {
         constructor(name) {
@@ -156,33 +170,32 @@
             this.cards = [];
         }
 
-        addCard(num) {
+        addCard(key) {
             if (this.cards.length !== 3) {
-                this.cards.push(userCard(num).getCardOptions());
+                this.cards.push(userCard(key).getCardOptions());
                 // console.log(this.cards);
             }
         }
 
         getCardByKey(num) {
             let card = userCard(num);
-            card.getCardOptions().key = num;
+            // console.log(card);
+            card.getCardOptions().key = random(num);
             return card;
         }
      }
 
+    let user = new UserAccount('Bob');
+    user.addCard(1);
+    user.addCard(2);
 
-     let user = new UserAccount('Bob');
-     user.addCard(1);
-     user.addCard(2);
+    let card_1 = user.getCardByKey(1);
+    let card_2 = user.getCardByKey(2);
 
+    card_1.putCredits(500);
+    card_1.setTransactionLimit(800);
+    card_1.transferCredits(300, card_2);
+    card_2.takeCredits(50);
 
-     // let card1 = user.getCardByKey(1);
-     // let card2 = user.getCardByKey(2);
-     // card1.putCredits(500);
-     // card1.setTransactionLimit(800);
-     // card1.transferCredits(300, card2);
-     // card2.takeCredits(50);
-     //
-     // console.log(card1.getCardOptions());
-     // console.log(card2.getCardOptions());
-
+    console.log(card_1.getCardOptions());
+    console.log(card_2.getCardOptions());
