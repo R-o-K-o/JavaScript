@@ -18,12 +18,12 @@
                 let postBlock = document.createElement('div');
                 postBlock.classList.add('post-block');
                 postBlock.innerHTML = `<h2>${post.id}. ${post.title}</h2>
-                                       <p>${post.body}</p>`;
+                                       <p>${post.body}.</p>`;
 
                 let button = document.createElement('button');
                 button.innerText = 'comments of post';
 
-                let commentsList = document.createElement('ol');
+                let commentsList = document.createElement('ul');
                 commentsList.classList.add('toggle');
 
                 button.addEventListener('click',  () => {
@@ -45,5 +45,4 @@
                 postCards.appendChild(postCard);
             }
             container.appendChild(postCards);
-            document.body.appendChild(container);
         });
