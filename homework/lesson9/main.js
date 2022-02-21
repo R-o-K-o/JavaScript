@@ -27,13 +27,13 @@
 //      Взяти файл template1.html та додати в нього скріпт котрий для кожного елементу масиву створює li та додає його до блоку .menu
 //      Завдання робити через цикли.
 
-    let items = ['Main','Products','About us','Contacts'];
-    let elUl = document.getElementsByClassName('menu')[0];
+    let menuList = ['Main','Products','About us','Contacts'];
+    let ul = document.getElementsByClassName('menu')[0];
 
-    for (let item of items) {
-        let elLi = document.createElement('li');
-        elLi.innerText = item;
-        elUl.appendChild(elLi);
+    for (const menuItem of menuList) {
+        let li = document.createElement('li');
+        li.innerText = menuItem;
+        ul.appendChild(li);
     }
 
 // - Є масив => coursesAndDurationArray <=
@@ -46,7 +46,7 @@
          {title: 'Python Complex', monthDuration: 6},
          {title: 'QA Complex', monthDuration: 4},
          {title: 'FullStack', monthDuration: 7},
-         {title: 'Frontend', monthDuration: 4}
+         {title: 'Frontend', monthDuration: 4},
      ];
 
     let courseWrap = document.createElement('div');
@@ -55,7 +55,7 @@
         let courseDiv = document.createElement('div');
         courseDiv.classList.add('item');
         courseDiv.innerText = `course - ${course.title} duration - ${course.monthDuration} months`;
-        courseWrap.appendChild(courseDiv)
+        courseWrap.appendChild(courseDiv);
     }
 
     body.appendChild(courseWrap);
