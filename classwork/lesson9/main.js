@@ -41,26 +41,26 @@
 //  Проітерувати його, створиши для кожного елементу масиву <div class='member'>.
 
     let body = document.body;
-    let simpsonsDiv = document.createElement('div');
+    let simpsonsList = document.createElement('div');
 
     for (let simpson of simpsons) {
-        let simpsonDiv = document.createElement('div');
-        simpsonDiv.classList.add('member');
-        simpsonDiv.innerHTML = `name - ${simpson.name} <br>
+        let simpsonItem = document.createElement('div');
+        simpsonItem.classList.add('member');
+        simpsonItem.innerHTML = `name - ${simpson.name} <br>
                          surname - ${simpson.surname} <br>
                          age - ${simpson.age} <br>
                          description - ${simpson.info} <br>
                          photo - <img src="${simpson.photo}" alt="simpson">`;
-        simpsonsDiv.appendChild(simpsonDiv);
+        simpsonsList.appendChild(simpsonItem);
     }
 
-    body.appendChild(simpsonsDiv);
+    body.appendChild(simpsonsList);
 
 // - взяти попередній масив з сімпсонами.
 //     Проітерувати його, створиши для кожного елементу масиву <div class='member'>.
 //     Для кожної властивості елементу створити окремий блок, та помістити його у div.member
 
-    let simpsonCards = document.createElement('div');
+    let simpsonsCards = document.createElement('div');
 
     for (let simpson of simpsons) {
         let simpsonCard = document.createElement('div');
@@ -84,10 +84,10 @@
         img.src = simpson.photo;
 
         simpsonCard.append(title, age, info, img);
-        simpsonCards.appendChild(simpsonCard);
+        simpsonsCards.appendChild(simpsonCard);
     }
 
-    body.append(simpsonCards);
+    body.append(simpsonsCards);
 
 // - є масив:
 
@@ -165,7 +165,7 @@
 //    значення окремих властивостей, для властивості modules зробити список з елементами
 //    Приклад структири знаходиться у файлі example.png
 
-    let courseList = document.createElement('div');
+    let coursesList = document.createElement('div');
 
     for (let course of coursesArray) {
         let courseItem = document.createElement('div');
@@ -201,7 +201,7 @@
         main.appendChild(modulesList);
 
         courseItem.append(header, section, main);
-        courseList.appendChild(courseItem);
+        coursesList.appendChild(courseItem);
     }
 
-    body.appendChild(courseList);
+    body.appendChild(coursesList);

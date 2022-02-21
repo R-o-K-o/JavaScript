@@ -1,4 +1,7 @@
-* { font-family: 'Baloo Chettan 2', cursive; box-sizing: border-box; }
+* {
+    font-family: 'Baloo Chettan 2', cursive;
+    box-sizing: border-box;
+}
 
 .member, .item {
     margin: 20px;
