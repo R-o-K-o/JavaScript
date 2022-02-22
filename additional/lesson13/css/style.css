@@ -1,0 +1,77 @@
+* {
+    font-family: 'Baloo Chettan 2', cursive;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px 0;
+    background: #ccc;
+}
+
+a {text-decoration: none;}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {min-width: 600px;}
+
+fieldset {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 30px 40px;
+    border-radius: .2em;
+    border: 4px solid teal;
+}
+
+fieldset, label, button {text-transform: uppercase;}
+
+label {
+    width: 10px;
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+input::placeholder {
+    color: rgba(29, 29, 29, 0.66);
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+input {
+    margin-bottom: 10px;
+    padding-left: 3px;
+    outline: none;
+    border-radius: 6px;
+    border: 3px solid teal;
+    background: whitesmoke;
+}
+
+input:invalid {
+    border: 2px solid tomato;
+    padding: 2px 3px;
+}
+
+input:valid {border: 3px solid teal;}
+
+.form-buttons {
+    display: flex;
+    column-gap: 20px;
+    margin-top: 15px;
+}
+
+button, .link {
+    color: #2d2d2d;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 5px;
+    border-radius: 9px;
+    border: 3px solid tomato;
+    background: #e3e3e3;
+    cursor: pointer;
+}
