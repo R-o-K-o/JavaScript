@@ -1,0 +1,57 @@
+* {
+    font-family: 'Baloo Chettan 2', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 0 auto;
+    padding: 30px;
+    background: #dcdcdc;
+}
+
+.title {
+    color: teal;
+    text-align: center;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+
+.users-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px 30px;
+}
+
+.user-card {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    border: 4px solid black;
+    background: #727467;
+}
+
+.user-name {
+    color: #a9c1c1;
+    margin-bottom: 20px;
+}
+
+button {
+    color: #b8b8b8;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 21px 6px;
+    outline: none;
+    border-radius: 50%;
+    border: 3px solid #a266ce;
+    background: #282828;
+    cursor: pointer;
+}
