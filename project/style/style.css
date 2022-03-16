@@ -5,21 +5,22 @@
     box-sizing: border-box;
 }
 
+body { background: #c4c4c4; }
+
 #container {
     margin: 0 auto;
     padding: 30px;
-    background: #dcdcdc;
 }
 
-.title {
-    color: teal;
+.page-title {
+    color: #868665;
     text-align: center;
     letter-spacing: .1rem;
     text-transform: capitalize;
     margin-bottom: 50px;
 }
 
-.users-cards {
+.user-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -32,26 +33,32 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    border: 4px solid #3b3b3b;
     border-radius: 10px;
-    border: 4px solid black;
-    background: #727467;
+    background: #747f7f;
 }
 
 .user-name {
-    color: #a9c1c1;
+    color: lightgrey;
     margin-bottom: 20px;
 }
 
-button {
-    color: #b8b8b8;
+.user-btn {
+    color: #a9c1c1;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
     padding: 21px 6px;
     outline: none;
+    border: 4px solid #a266ce;
     border-radius: 50%;
-    border: 3px solid #a266ce;
-    background: #282828;
+    background: #232323;
     cursor: pointer;
+    transition: 2s;
+}
+
+.user-btn:hover {
+    border-color: tomato;
+    transition: 1s;
 }
